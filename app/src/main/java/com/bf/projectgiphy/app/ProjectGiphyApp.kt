@@ -1,14 +1,15 @@
 package com.bf.projectgiphy.app
 
 import android.app.Application
+import com.bf.projectgiphy.di.DaggerAppComponent
 
-class ProjectGiphyApp: Application() {
+class ProjectGiphyApp : Application() {
 
     val appComponent by lazy {
         initAppComponent()
     }
 
     private fun initAppComponent() {
-        TODO("Not yet implemented")
+        DaggerAppComponent.factory().create(applicationContext)
     }
 }
