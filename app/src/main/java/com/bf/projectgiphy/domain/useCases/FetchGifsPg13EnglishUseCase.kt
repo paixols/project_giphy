@@ -4,7 +4,7 @@ import com.bf.projectgiphy.data.models.DataRequest
 import com.bf.projectgiphy.domain.models.Gif
 import com.bf.projectgiphy.domain.repositories.GiphyRepositoryInterface
 
-class FetchGifsUseCase constructor(
+class FetchGifsPg13EnglishUseCase constructor(
     private val giphyRepository: GiphyRepositoryInterface
 ) : BaseUseCase<List<Gif>, DataRequest> {
 

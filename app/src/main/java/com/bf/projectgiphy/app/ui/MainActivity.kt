@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bf.projectgiphy.adapters.GiphyAdapter
 import com.bf.projectgiphy.app.ProjectGiphyApp
 import com.bf.projectgiphy.databinding.ActivityMainBinding
@@ -47,10 +48,26 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = adapter
 
         viewModel.gifs().observe(this) {
-            mGiphyList.clear()
             mGiphyList.addAll(it)
             adapter.notifyDataSetChanged()
         }
+
+        setupPagination()
     }
-    
+
+    private fun setupPagination() {
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                (recyclerView.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+                    .let { lastElement ->
+                        viewModel.loadGifsWithPagination(20, lastElement + 20)
+                    }
+            }
+
+        })
+    }
+
 }

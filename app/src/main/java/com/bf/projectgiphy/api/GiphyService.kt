@@ -36,26 +36,26 @@ class GiphyService @Inject constructor(
         offset: Int,
         rating: String,
         language: String
-    ): Data =
-        suspendCancellableCoroutine { cancellableContinuation ->
-            val call = giphyInterface.getGifs(query, limit, offset, rating, language)
-
-            call.enqueue(object : Callback<Data> {
-                override fun onResponse(call: Call<Data>, response: Response<Data>) {
-                    response.body()?.let {
-                        cancellableContinuation.resume(it)
-                    } ?: run {
-                        cancellableContinuation.resumeWithException(
-                            Throwable(response.message())
-                        )
-                    }
-                }
-
-                override fun onFailure(call: Call<Data>, t: Throwable) {
-                    cancellableContinuation.resumeWithException(t)
-                }
-
-            })
-
-        }
+    ): Data = giphyInterface.getGifs(query, limit, offset, rating, language)
+//        suspendCancellableCoroutine { cancellableContinuation ->
+//            val call = giphyInterface.getGifs(query, limit, offset, rating, language)
+//
+//            call.enqueue(object : Callback<Data> {
+//                override fun onResponse(call: Call<Data>, response: Response<Data>) {
+//                    response.body()?.let {
+//                        cancellableContinuation.resume(it)
+//                    } ?: run {
+//                        cancellableContinuation.resumeWithException(
+//                            Throwable(response.message())
+//                        )
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<Data>, t: Throwable) {
+//                    cancellableContinuation.resumeWithException(t)
+//                }
+//
+//            })
+//
+//        }
 }
