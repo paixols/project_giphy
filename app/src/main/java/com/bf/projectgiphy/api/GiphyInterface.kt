@@ -1,7 +1,6 @@
 package com.bf.projectgiphy.api
 
 import com.bf.projectgiphy.domain.models.Data
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
