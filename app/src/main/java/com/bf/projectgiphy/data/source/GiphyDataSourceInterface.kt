@@ -1,8 +1,11 @@
-package com.bf.projectgiphy.domain.repositories
+package com.bf.projectgiphy.data.source
 
 import com.bf.projectgiphy.domain.models.Data
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-interface GiphyRepositoryInterface {
+interface GiphyDataSourceInterface {
+
+    @ExperimentalCoroutinesApi
     suspend fun getGifs(
         query: String,
         limit: Int,
@@ -10,4 +13,5 @@ interface GiphyRepositoryInterface {
         rating: String,
         language: String
     ): Data
+
 }

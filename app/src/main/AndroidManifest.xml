@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bf.projectgiphy">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:name=".app.ProjectGiphyApp"
         android:allowBackup="true"
@@ -15,7 +18,7 @@
         android:theme="@style/Theme.ProjectGiphy"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".app.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

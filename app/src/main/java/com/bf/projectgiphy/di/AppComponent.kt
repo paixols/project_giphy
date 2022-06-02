@@ -1,6 +1,7 @@
 package com.bf.projectgiphy.di
 
 import android.content.Context
+import com.bf.projectgiphy.app.di.GiphyComponent
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -10,6 +11,7 @@ import javax.inject.Singleton
     modules = [
         AppModule::class,
         ViewModelBuilderModule::class,
+        FeaturesSubComponentModule::class,
         ServicesModule::class
     ]
 )
@@ -20,5 +22,7 @@ interface AppComponent {
         fun create(@BindsInstance applicationContext: Context): AppComponent
     }
 
+    //Components
+    fun createGiphyComponent(): GiphyComponent.Factory
 
 }

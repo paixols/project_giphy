@@ -10,5 +10,5 @@ data class Gif(
     @SerializedName("title")
     val title: String,
     @SerializedName("images")
-    val images: List<Image>
+    val images: Images
 )
