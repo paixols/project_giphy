@@ -35,26 +35,34 @@
             <!--Gif Name-->
             <TextView
                 android:id="@+id/tv_gif_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
                 android:gravity="start"
+                android:lines="2"
+                android:maxLines="4"
+                android:minLines="2"
                 android:text="@{gif.title, default = Title}"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gl_horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!--Gif Type-->
-            <TextView
-                android:id="@+id/tv_gif_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/iv_gif_type"
+                load_image="@{gif.images.original.url, default = null}"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_margin="@dimen/margin_medium"
+                android:contentDescription="@string/gif_content_type"
                 android:gravity="start"
-                android:text="@{gif.type, default = Type}"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_gif_name" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/gl_horizontal"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

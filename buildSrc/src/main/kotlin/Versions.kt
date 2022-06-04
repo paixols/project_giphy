@@ -38,6 +38,9 @@ object Versions {
     const val ktx_coroutines = "2.4.0"
     const val coroutines = "1.5.2"
 
+    /* Media */
+    const val glide = "4.13.2"
+
     /* Network */
     const val retrofit2 = "2.9.0"
     const val gsonConverter = "2.9.0"
