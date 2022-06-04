@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Project Giphy</string>
     <string name="gif_content_type">Gif</string>
+    <string name="gif_width">Gif Width: %s</string>
+    <string name="gif_height">Gif Height: %s</string>
 </resources>

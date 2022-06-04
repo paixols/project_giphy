@@ -7,7 +7,8 @@ import com.bf.projectgiphy.databinding.CardGifBinding
 import com.bf.projectgiphy.domain.models.Gif
 
 class GiphyAdapter(
-    private val giphyList: ArrayList<Gif>
+    private val giphyList: ArrayList<Gif>,
+    private val listener: OnItemClickedListener
 ) : RecyclerView.Adapter<GiphyAdapter.ViewHolder>() {
 
     class ViewHolder(
@@ -27,6 +28,7 @@ class GiphyAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(giphyList[position])
+        holder.itemView.setOnClickListener { listener.onItemClicked(giphyList[position]) }
     }
 
     override fun getItemCount(): Int {

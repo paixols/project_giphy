@@ -26,7 +26,7 @@
 
             <!--Central Guideline-->
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_horizontal"
+                android:id="@+id/gl_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -46,7 +46,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_small"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/gl_horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/gl_vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +61,7 @@
                 android:gravity="start"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/gl_horizontal"
+                app:layout_constraintStart_toStartOf="@+id/gl_vertical"
                 app:layout_constraintTop_toTopOf="parent" />
 
 

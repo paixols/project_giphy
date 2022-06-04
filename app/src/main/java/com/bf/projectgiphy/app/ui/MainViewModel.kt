@@ -18,7 +18,17 @@ class MainViewModel @Inject constructor(
         value = ArrayList()
     }
 
+    private var _selectedGif = MutableLiveData<Gif>().apply {
+        value = null
+    }
+
     fun gifs(): LiveData<List<Gif>> = _gifs
+
+    fun selectedGif(gif: Gif) {
+        _selectedGif.value = gif
+    }
+
+    fun getGifForDetail(): LiveData<Gif> = _selectedGif
 
     private fun defaultDataRequest(): DataRequest = DataRequest(
         query = "Boba Fett",
